@@ -29,7 +29,7 @@ class App extends React.Component {
            }
          },
          () => {
-           console.group(this.state);
+           console.log(this.state);
          });
          //console.log(snapshot.data());
        });
