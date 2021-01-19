@@ -4,8 +4,9 @@ import './header.styles.scss';
 import {auth} from '../../firebase/firebase.utils'
 import { connect } from 'react-redux';
 import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropDown from '../cart-dropdown/cart-dropdown.component';
 
-const Header = ({currentUser}) => (
+const Header = ({currentUser , hidden}) => (
     <div className='header'>
         <Link className='logo-container' to="/">
         <img className='logo' alt="not available" src='https://www.logodesign.net/logo/penguin-wearing-detective-hat-5325ld.png?size=2&industry=apparel-fashion'></img>  
@@ -21,13 +22,14 @@ const Header = ({currentUser}) => (
             }
             <CartIcon/>
         </div>
+        {hidden? null : <CartDropDown/> }
     </div>
 )
 
-const mapStateToProps = state => ({
+const mapStateToProps = ({user: {currentUser} , cart: {hidden}}) => ({
 
-    currentUser : state.user.currentUser
-
+    currentUser ,
+    hidden
 });
 
 export default connect(mapStateToProps)(Header);
