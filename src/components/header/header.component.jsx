@@ -26,10 +26,12 @@ const Header = ({currentUser , hidden}) => (
     </div>
 )
 
-const mapStateToProps = ({user: {currentUser} , cart: {hidden}}) => ({
-
+const mapStateToProps = ({user: {currentUser} , cart: {hidden}}) => {
+   // console.log("I am in mapStateToProps for header component");
+    return({
     currentUser ,
     hidden
 });
+}
 
 export default connect(mapStateToProps)(Header);

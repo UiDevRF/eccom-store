@@ -22,9 +22,12 @@ const CollectionItem = ({item,addItem}) => {
 
 )}
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => {
+    //console.log("I am in mapDispatchToProps for collection-item component")
+    return({
     addItem : (item) => dispatch(addItem(item))
 });
+}
 
 export default connect(null,mapDispatchToProps)(CollectionItem);
 
